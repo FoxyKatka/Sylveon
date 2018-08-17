@@ -4,10 +4,21 @@ const client = new Discord.Client();
 
 // Attack and effectivness options (randomises output)
 const Attack = ["Draining Kiss", "Moonblast", "Moonblast", "Hyper voice"];
-const Attack_respone = Attack[Math.floor(Math.random()*Attack.length)];
+const Attack_response = Attack[Math.floor(Math.random()*Attack.length)];
 const effect = ["It's Super Effective!", "It's not very effective"];
-const effect_respone = effect[Math.floor(Math.random()*effect.length)];
+const effect_response = effect[Math.floor(Math.random()*effect.length)];
  
+const amv = ["https://www.youtube.com/watch?v=_8igtZ1Jyz4", "https://www.youtube.com/watch?v=O-MGT2z3fOs", "https://www.youtube.com/watch?v=oa49FiAl61g",
+             "https://www.youtube.com/watch?v=HWO3ZFOOiIM", "https://www.youtube.com/watch?v=CVdfOGHm8vo", "https://www.youtube.com/watch?v=-vVpeuO5e0Y",
+             "https://www.youtube.com/watch?v=uj6zzmzcogk", "https://www.youtube.com/watch?v=1UfiHYC7sn8", "https://www.youtube.com/watch?v=UZLTkSoaSPo",
+             "https://www.youtube.com/watch?v=rBk_MH7OlAc", "https://www.youtube.com/watch?v=SDPp1b0qitI", "https://www.youtube.com/watch?v=8sWqefrAMmI",
+             "https://www.youtube.com/watch?v=9jmeQESgDG8", "https://www.youtube.com/watch?v=JmggCilz5R4", "https://www.youtube.com/watch?v=4L9FZZpZKdg",
+             "https://www.youtube.com/watch?v=NDMbNQc_gcc", "https://www.youtube.com/watch?v=0gOcq24IqjA", "https://www.youtube.com/watch?v=b5ta_USrqoE",
+             "https://www.youtube.com/watch?v=639Yw9l7XqE", "https://www.youtube.com/watch?v=uI2e60ZFm7Q", "https://www.youtube.com/watch?v=i5h_Xr1tF9Q",
+             "https://www.youtube.com/watch?v=OV-7D3cEzfU", "https://www.youtube.com/watch?v=qLBHnuD7VWU", "https://www.youtube.com/watch?v=Du5yT56lBLQ",
+             "https://www.youtube.com/watch?v=UwMHN9gD33U",];
+const amv_response = amv[Math.floor(Math.random()*Attack.length)];
+
 client.on('ready', () => {
     console.log('Ready!');
     client.user.setActivity("!help for cmds")
@@ -63,7 +74,7 @@ client.on('message', message => {
         if (!message.mentions.users.size) {
             return message.reply('you need to tag a user in order to use Attack!');
         }
-        message.channel.send(`Sylveon uses ${Attack_respone} on ${taggedUser.username} ${effect_respone} `);
+        message.channel.send(`Sylveon uses ${Attack_response} on ${taggedUser.username} ${effect_response} `);
     }
 
     else if (command === `excited`){
@@ -82,6 +93,9 @@ client.on('message', message => {
         message.channel.send( {files: ["./gifs/" + imageNumber + ".gif"]} )
     }
 
+    else if (command === `amv`) {
+        message.channel.send(`${amv_response}`);
+    }
     // Sending multiple discord rich elements in 1 command.
     else if (command === 'help') {
         const embed = new Discord.RichEmbed()
