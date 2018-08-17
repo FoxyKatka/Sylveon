@@ -2,22 +2,6 @@ const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const client = new Discord.Client();
 
-// Attack and effectivness options (randomises output)
-const Attack = ["Draining Kiss", "Moonblast", "Moonblast", "Hyper voice"];
-const Attack_response = Attack[Math.floor(Math.random()*Attack.length)];
-const effect = ["It's Super Effective!", "It's not very effective"];
-const effect_response = effect[Math.floor(Math.random()*effect.length)];
- 
-const amv = ["https://www.youtube.com/watch?v=_8igtZ1Jyz4", "https://www.youtube.com/watch?v=O-MGT2z3fOs", "https://www.youtube.com/watch?v=oa49FiAl61g",
-             "https://www.youtube.com/watch?v=HWO3ZFOOiIM", "https://www.youtube.com/watch?v=CVdfOGHm8vo", "https://www.youtube.com/watch?v=-vVpeuO5e0Y",
-             "https://www.youtube.com/watch?v=uj6zzmzcogk", "https://www.youtube.com/watch?v=1UfiHYC7sn8", "https://www.youtube.com/watch?v=UZLTkSoaSPo",
-             "https://www.youtube.com/watch?v=rBk_MH7OlAc", "https://www.youtube.com/watch?v=SDPp1b0qitI", "https://www.youtube.com/watch?v=8sWqefrAMmI",
-             "https://www.youtube.com/watch?v=9jmeQESgDG8", "https://www.youtube.com/watch?v=JmggCilz5R4", "https://www.youtube.com/watch?v=4L9FZZpZKdg",
-             "https://www.youtube.com/watch?v=NDMbNQc_gcc", "https://www.youtube.com/watch?v=0gOcq24IqjA", "https://www.youtube.com/watch?v=b5ta_USrqoE",
-             "https://www.youtube.com/watch?v=639Yw9l7XqE", "https://www.youtube.com/watch?v=uI2e60ZFm7Q", "https://www.youtube.com/watch?v=i5h_Xr1tF9Q",
-             "https://www.youtube.com/watch?v=OV-7D3cEzfU", "https://www.youtube.com/watch?v=qLBHnuD7VWU", "https://www.youtube.com/watch?v=Du5yT56lBLQ",
-             "https://www.youtube.com/watch?v=UwMHN9gD33U",];
-const amv_response = amv[Math.floor(Math.random()*Attack.length)];
 
 client.on('ready', () => {
     console.log('Ready!');
@@ -69,6 +53,11 @@ client.on('message', message => {
     }
     
     else if (command === 'attack') {
+        // Attack and effectivness options (randomises output)
+        const Attack = ["Draining Kiss", "Moonblast", "Moonblast", "Hyper voice"];
+        const Attack_response = Attack[Math.floor(Math.random()*Attack.length)];
+        const effect = ["It's Super Effective!", "It's not very effective"];
+        const effect_response = effect[Math.floor(Math.random()*effect.length)];
         // 'Attacks' mentioned user
         const taggedUser = message.mentions.users.first(); 
         if (!message.mentions.users.size) {
@@ -94,8 +83,33 @@ client.on('message', message => {
     }
 
     else if (command === `amv`) {
+    // Chooses random amv from array
+        const amv = ["https://www.youtube.com/watch?v=_8igtZ1Jyz4", "https://www.youtube.com/watch?v=O-MGT2z3fOs", "https://www.youtube.com/watch?v=oa49FiAl61g",
+                     "https://www.youtube.com/watch?v=HWO3ZFOOiIM", "https://www.youtube.com/watch?v=CVdfOGHm8vo", "https://www.youtube.com/watch?v=-vVpeuO5e0Y",
+                     "https://www.youtube.com/watch?v=uj6zzmzcogk", "https://www.youtube.com/watch?v=1UfiHYC7sn8", "https://www.youtube.com/watch?v=UZLTkSoaSPo",
+                     "https://www.youtube.com/watch?v=rBk_MH7OlAc", "https://www.youtube.com/watch?v=SDPp1b0qitI", "https://www.youtube.com/watch?v=8sWqefrAMmI",
+                     "https://www.youtube.com/watch?v=9jmeQESgDG8", "https://www.youtube.com/watch?v=JmggCilz5R4", "https://www.youtube.com/watch?v=4L9FZZpZKdg",
+                     "https://www.youtube.com/watch?v=NDMbNQc_gcc", "https://www.youtube.com/watch?v=0gOcq24IqjA", "https://www.youtube.com/watch?v=b5ta_USrqoE",
+                     "https://www.youtube.com/watch?v=639Yw9l7XqE", "https://www.youtube.com/watch?v=uI2e60ZFm7Q", "https://www.youtube.com/watch?v=i5h_Xr1tF9Q",
+                     "https://www.youtube.com/watch?v=OV-7D3cEzfU", "https://www.youtube.com/watch?v=qLBHnuD7VWU", "https://www.youtube.com/watch?v=Du5yT56lBLQ",
+                     "https://www.youtube.com/watch?v=UwMHN9gD33U", "https://www.youtube.com/watch?v=wiJ5EexHhAY", "https://www.youtube.com/watch?v=nEqOrwiDTVA"];
+        const amv_response = amv[Math.floor(Math.random()*amv.length)];
         message.channel.send(`${amv_response}`);
     }
+
+    else if (command === `quote`) {     
+    // Chooses random quote from array
+        const quote = ["“If I’m wearing a bikini...where do I put my Pokeballs? Teehee...woman’s secret!” - Swimmer Kylie", "“By the way...boy...you ever had a lover?” - Hiker Andy", "“My Rattata is different from regular Rattata. It’s like my Rattata is in the top percentage of Rattatas.” - Youngster Joey",
+               "“Hi! I like shorts! They’re comfy and easy to wear!” - A Youngster trainer", "“Wow. You and your Pokemon’s power levels are amazing! They’re over 9000 for sure!” - Psychic Robert", "“The air is tasty here.” - A little boy",
+               "“You’re pretty hot, but not as hot as Brock.” - Jr Trainer", "“My body is ready.” - Veteran Timeo", "“Give...me...blood…” - Channeler trainer",
+               "“Technology is incredible!/The power of science is staggering!” - science/technology enthusiast", "“Did you come to hear me brag about my Pokemon? Good! Then listen up! My favorite Rapidash... It... cute... lovely... smart...plus...amazing...you think so?... Oh yes... it...stunning...kindly...love it! Hug it ...when... sleeping...warm and cuddly...spectacular...ravishing... Oops! Look at the time! I kept you too long! Thanks for hearing me out. I want you to have this.” - President of the Pokemon Fan Club", "“Even If we don’t understand each other, that’s not a reason to reject each other. There are two sides to any argument. Is there one point of view that has all the answers? Give it some thought.” – Alder",
+               "“Everybody makes a wrong turn once in a while” – Ash Ketchum", "“Make your wonderful dream a reality, it will become your truth. If anyone can, it’s you.” – N, Pokemon Black/White", "“I see now that one’s birth is irrelevant. It’s what you do that determines who you are.” – Mewtwo",
+               ];
+        const quote_response = quote[Math.floor(Math.random()*quote.length)];
+        console.log(quote_response) // for testing
+        message.channel.send(`${quote_response}`);
+    }
+
     // Sending multiple discord rich elements in 1 command.
     else if (command === 'help') {
         const embed = new Discord.RichEmbed()
