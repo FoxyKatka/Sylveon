@@ -66,24 +66,37 @@ client.on('message', message => {
         message.channel.send(`Sylveon uses ${Attack_respone} on ${taggedUser.username} ${effect_respone} `);
     }
 
+    else if (command === `excited`){
+        message.channel.send( {files: ["./gifs/NPYl.gif"]})
+    }
+    
     else if (command === `image`) {
         number = 124;
         imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
         message.channel.send( {files: ["./images/" + imageNumber + ".png"]} )
     }
 
+    else if (command === `gif`) {
+        number = 73;
+        imageNumber = Math.floor (Math.random() * (number - 1 + 1)) + 1;
+        message.channel.send( {files: ["./gifs/" + imageNumber + ".gif"]} )
+    }
+
     // Sending multiple discord rich elements in 1 command.
     else if (command === 'help') {
         const embed = new Discord.RichEmbed()
         .setColor(0x74d7ec)
-		.setTitle("Command List:")
+		.setTitle("Command List")
 		.addField("!help", "Will show the current command list")
 		.addField("!ping", "WIll show the ping time for the bot")
 		.addField("!say [text]", "Will make the bot say something")
 		.addField("!announcement [text]", "Will make the bot say an announcement and tag everyone")
         .addField("!trans", "send back <3 to the user")
-        .addField("!attack", "Attacks mentioned user")
-        .addField("!server", "Server info");
+        .addField("!gif", "Sends a random gif of Sylveon related Art")
+        .addField("!image", "Sends a random image of Sylveon related Art")
+        .addField("!attack", "Attack's the mentioned user")
+        .addField("!server", "Server info")
+        .addField("!user-info", "User info");
         message.channel.send(embed)
         
         const embed2 = new Discord.RichEmbed()
@@ -104,7 +117,14 @@ client.on('message', message => {
 
         const embed5 = new Discord.RichEmbed()
         .setColor(0x73d5ea)
-        .setTitle("5")
+        .setTitle("Credits")
+        .addField("Stalk my owner", 
+        `Twitter: [Twitter](https://twitter.com/FoxyKatka)
+         Discord: Foxy ^_~#0002`
+        )
+        .addField("Contribute", `If you have any suggestions for the bot, Send me a dm on either twitter or discord. I will make sure to credit you! :)`)
+        .addField("Documentation", "Further Documentation and full code is available on [Github](https://github.com/FoxyKatka/Sylveon)",true)
+        .addBlankField(true)
         .setImage("https://i.imgur.com/XOdnMKY.gif")
         .setFooter("Foxy ^_~ |",  "https://i.imgur.com/Tn205iZ.png")
         .setTimestamp()
