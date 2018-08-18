@@ -63,11 +63,11 @@ client.on('message', message => {
         if (!message.mentions.users.size) {
             return message.reply('you need to tag a user in order to use Attack!');
         }
-        message.channel.send(`Sylveon uses ${Attack_response} on ${taggedUser.username} ${effect_response} `);
+        message.channel.send(`Sylveon uses ${Attack_response} on ${taggedUser.username}, ${effect_response} `);
     }
 
     else if (command === `excited`){
-        message.channel.send( {files: ["./gifs/NPYl.gif"]})
+        message.channel.send( {files: ["./cmd_specific_files/NPYl.gif"]})
     }
     
     else if (command === `image`) {
@@ -116,6 +116,17 @@ client.on('message', message => {
         message.channel.send(`${quote_response}`);
     }
 
+    else if (command === `theme`) {
+        var VC = message.member.voiceChannel;
+        if (!VC)
+            return message.reply("You need to be in a voice channel to play audio files!")
+    VC.join()
+        .then(connection => {
+            const dispatcher = connection.playFile('./cmd_specific_files/audio/theme.mp3');
+            dispatcher.on("end", end => {VC.leave()});
+        })
+        .catch(console.error);
+    }
     // Sending multiple discord rich elements in 1 command.
     else if (command === 'help') {
         const embed = new Discord.RichEmbed()

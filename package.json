@@ -1,7 +1,7 @@
 {
   "name": "sylveon",
   "version": "1.0.0",
-  "description": "A Discord bot that outputs a random image of sylveon.",
+  "description": "A  versatile Discord bot based of sylveon the pokemon.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/FoxyKatka/Sylveon#readme",
   "dependencies": {
-    "discord.js": "^11.3.2"
+    "discord.js": "^11.3.2",
+    "opusscript": "0.0.6"
   }
 }
