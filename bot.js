@@ -33,7 +33,7 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 
     if (command === `trans`) {
-        message.channel.send('<3');  // send back "<3" to the channel the message was sent in
+        message.channel.send(`<3, Look mom its a link!, where could it lead? https://www.reddit.com/r/traaaaaaannnnnnnnnns/ `);  // send back "<3" to the channel the message was sent in
     }
     else if (command === `ping`) {
         message.channel.send(`Time took: ${Date.now() - message.createdTimestamp} ms`);
@@ -51,7 +51,13 @@ client.on('message', message => {
     
         message.channel.send(`Command name: ${command}\nArguments: ${args}`);
     }
-    
+    else if (command === `say`) {
+        const embed = new Discord.RichEmbed()
+		.setColor(0x74d7ec)
+		.setDescription(message.author.username + " says: " + args.join(" "));
+		message.channel.send({embed})
+    }
+
     else if (command === 'attack') {
         // Attack and effectivness options (randomises output)
         const Attack = ["Draining Kiss", "Moonblast", "Moonblast", "Hyper voice"];
@@ -66,8 +72,16 @@ client.on('message', message => {
         message.channel.send(`Sylveon uses ${Attack_response} on ${taggedUser.username}, ${effect_response} `);
     }
 
+    else if (command === `kiss`){
+        const taggedUser = message.mentions.users.first(); 
+        if (!message.mentions.users.size) {
+            return message.reply('you need to tag a user in order to Kiss them!');
+        }
+        message.channel.send(`Sylveon Kissed ${taggedUser.username}`, {files: ["./cmd_specific_files/kiss.gif"]})
+    }
+
     else if (command === `excited`){
-        message.channel.send( {files: ["./cmd_specific_files/NPYl.gif"]})
+        message.channel.send({files: ["./cmd_specific_files/NPYl.gif"]})
     }
     
     else if (command === `image`) {
@@ -135,28 +149,28 @@ client.on('message', message => {
 		.addField("!help", "Will show the current command list")
 		.addField("!ping", "WIll show the ping time for the bot")
 		.addField("!say [text]", "Will make the bot say something")
-		.addField("!announcement [text]", "Will make the bot say an announcement and tag everyone")
-        .addField("!trans", "send back <3 to the user")
-        .addField("!gif", "Sends a random gif of Sylveon related Art")
-        .addField("!image", "Sends a random image of Sylveon related Art")
-        .addField("!attack", "Attack's the mentioned user")
         .addField("!server", "Server info")
         .addField("!user-info", "User info");
         message.channel.send(embed)
         
         const embed2 = new Discord.RichEmbed()
         .setColor(0xffafc7)
-        .setTitle("2")
+        .addField("!trans", "links to the best place on [reddit](https://www.reddit.com/r/traaaaaaannnnnnnnnns/)")
+        .addField("!theme", "If user is in a voice channel, sylveon will join and play the pokemon theme song")
+        .addField("!amv", "Sends a random AMV youtube video")
+        .addField("!gif", "Sends a random gif of Sylveon related Art")
+        .addField("!image", "Sends a random image of Sylveon related Art")
         message.channel.send(embed2);
 
         const embed3 = new Discord.RichEmbed()
         .setColor(0xfbf9f5)
-        .setTitle("3")
+        .addField("!attack", "Attack's the mentioned user")
+        .addField("!kiss", "Kisses the mentioned user")
         message.channel.send(embed3);
 
         const embed4 = new Discord.RichEmbed()
         .setColor(0xffb5cb)
-        .setTitle("4")
+        .addField("Warning", "Sylveon bot is in an experimental state. Just like a hormone raging, moody teenager. They may refuse to do certain commands under the stresses of real life.")
         
         message.channel.send(embed4);
 
@@ -171,7 +185,7 @@ client.on('message', message => {
         .addField("Documentation", "Further Documentation and full code is available on [Github](https://github.com/FoxyKatka/Sylveon)",true)
         .addBlankField(true)
         .setImage("https://i.imgur.com/XOdnMKY.gif")
-        .setFooter("Foxy ^_~ |",  "https://i.imgur.com/Tn205iZ.png")
+        .setFooter("Foxy |",  "https://i.imgur.com/Tn205iZ.png")
         .setTimestamp()
         message.channel.send(embed5);
     }
