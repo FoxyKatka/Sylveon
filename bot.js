@@ -156,7 +156,7 @@ client.on('message', message => {
         const embed2 = new Discord.RichEmbed()
         .setColor(0xffafc7)
         .addField("!trans", "links to the best place on [reddit](https://www.reddit.com/r/traaaaaaannnnnnnnnns/)")
-        .addField("!theme", "If user is in a voice channel, sylveon will join and play the pokemon theme song")
+        .addField("!theme", "If user is in a voice channel, sylveon will join and play the Pokemon theme song")
         .addField("!amv", "Sends a random AMV youtube video")
         .addField("!gif", "Sends a random gif of Sylveon related Art")
         .addField("!image", "Sends a random image of Sylveon related Art")
@@ -166,6 +166,7 @@ client.on('message', message => {
         .setColor(0xfbf9f5)
         .addField("!attack", "Attack's the mentioned user")
         .addField("!kiss", "Kisses the mentioned user")
+        .addField("!quote", "Sends a random Pokemon quote")
         message.channel.send(embed3);
 
         const embed4 = new Discord.RichEmbed()
