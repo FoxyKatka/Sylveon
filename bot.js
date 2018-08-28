@@ -180,7 +180,7 @@ client.on('message', message => {
         .setTitle("Credits")
         .addField("Stalk my owner", 
         `Twitter: [Twitter](https://twitter.com/FoxyKatka)
-         Discord: Foxy ^_~#0002`
+         Discord: Foxy#0002`
         )
         .addField("Contribute", `If you have any suggestions for the bot, Send me a dm on either twitter or discord. I will make sure to credit you! :)`)
         .addField("Documentation", "Further Documentation and full code is available on [Github](https://github.com/FoxyKatka/Sylveon)",true)
