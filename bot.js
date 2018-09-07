@@ -106,7 +106,8 @@ client.on('message', message => {
                      "https://www.youtube.com/watch?v=NDMbNQc_gcc", "https://www.youtube.com/watch?v=0gOcq24IqjA", "https://www.youtube.com/watch?v=b5ta_USrqoE",
                      "https://www.youtube.com/watch?v=639Yw9l7XqE", "https://www.youtube.com/watch?v=uI2e60ZFm7Q", "https://www.youtube.com/watch?v=i5h_Xr1tF9Q",
                      "https://www.youtube.com/watch?v=OV-7D3cEzfU", "https://www.youtube.com/watch?v=qLBHnuD7VWU", "https://www.youtube.com/watch?v=Du5yT56lBLQ",
-                     "https://www.youtube.com/watch?v=UwMHN9gD33U", "https://www.youtube.com/watch?v=wiJ5EexHhAY", "https://www.youtube.com/watch?v=nEqOrwiDTVA"];
+                     "https://www.youtube.com/watch?v=UwMHN9gD33U", "https://www.youtube.com/watch?v=wiJ5EexHhAY", "https://www.youtube.com/watch?v=nEqOrwiDTVA",
+                     "https://www.youtube.com/watch?v=93_ZmyJyBSM"];
         const amv_response = amv[Math.floor(Math.random()*amv.length)];
         message.channel.send(`${amv_response}`);
     }
