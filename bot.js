@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const client = new Discord.Client();
-
+const version = ("Version: 1.0.1")
 
 client.on('ready', () => {
     console.log('Ready!');
@@ -51,6 +51,17 @@ client.on('message', message => {
     
         message.channel.send(`Command name: ${command}\nArguments: ${args}`);
     }
+    else if (command === `uptime`) {
+        //Gather uptime of bot
+        let totalSeconds = (client.uptime / 1000);
+        let hours = Math.floor(totalSeconds / 3600);
+        totalSeconds %= 3600;
+        let minutes = Math.floor(totalSeconds / 60);
+        let seconds = totalSeconds % 60;
+        let uptime = `${hours} hours, ${minutes} minutes and ${seconds} seconds`;
+        message.channel.send(`Bot uptime: ${uptime}\n${version}`);
+    }
+
     else if (command === `say`) {
         const embed = new Discord.RichEmbed()
 		.setColor(0x74d7ec)
