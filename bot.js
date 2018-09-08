@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const client = new Discord.Client();
-const version = ("Version: 1.0.1")
+const version = ("Version: 1.0.2")
 
 client.on('ready', () => {
     console.log('Ready!');
@@ -59,7 +59,7 @@ client.on('message', message => {
         let minutes = Math.floor(totalSeconds / 60);
         let seconds = totalSeconds % 60;
         let uptime = `${hours} hours, ${minutes} minutes and ${seconds} seconds`;
-        message.channel.send(`Bot uptime: ${uptime}\n${version}`);
+        message.channel.send(`Bot uptime: ${uptime}`);
     }
 
     else if (command === `say`) {
@@ -89,6 +89,14 @@ client.on('message', message => {
             return message.reply('you need to tag a user in order to Kiss them!');
         }
         message.channel.send(`Sylveon Kissed ${taggedUser.username}`, {files: ["./cmd_specific_files/kiss.gif"]})
+    }
+
+    else if (command === `hug`){
+        const taggedUser = message.mentions.users.first(); 
+        if (!message.mentions.users.size) {
+            return message.reply('you need to tag a user in order to hug them!');
+        }
+        message.channel.send(`Sylveon hugged ${taggedUser.username}`, {files: ["./cmd_specific_files/hug.gif"]})
     }
 
     else if (command === `excited`){
@@ -160,10 +168,11 @@ client.on('message', message => {
 		.setTitle("Command List")
 		.addField("!help", "Will show the current command list")
 		.addField("!ping", "WIll show the ping time for the bot")
-		.addField("!say [text]", "Will make the bot say something")
+        .addField("!say [text]", "Will make the bot say something")
+        .addField("!uptime", "Will Show how long the bot has been online for")
         .addField("!server", "Server info")
-        .addField("!user-info", "User info");
-        message.channel.send(embed)
+        .addField("!user-info", "User info")
+        message.channel.send(embed);
         
         const embed2 = new Discord.RichEmbed()
         .setColor(0xffafc7)
@@ -176,8 +185,9 @@ client.on('message', message => {
 
         const embed3 = new Discord.RichEmbed()
         .setColor(0xfbf9f5)
-        .addField("!attack", "Attack's the mentioned user")
-        .addField("!kiss", "Kisses the mentioned user")
+        .addField("!attack [@user]", "Attack's the mentioned user")
+        .addField("!hug [@user]", "hugs the mentioned user")
+        .addField("!kiss [@user]", "Kisses the mentioned user")
         .addField("!quote", "Sends a random Pokemon quote")
         message.channel.send(embed3);
 
@@ -194,11 +204,11 @@ client.on('message', message => {
         `Twitter: [Twitter](https://twitter.com/FoxyKatka)
          Discord: Foxy#0002`
         )
-        .addField("Contribute", `If you have any suggestions for the bot, Send me a dm on either twitter or discord. I will make sure to credit you! :)`)
+        .addField("Contribute", `If you have any suggestions for the bot, Send me a dm on either twitter or discord. Otherwise if you directly want to contribute you can do so by checking out the github :)`)
         .addField("Documentation", "Further Documentation and full code is available on [Github](https://github.com/FoxyKatka/Sylveon)",true)
         .addBlankField(true)
         .setImage("https://i.imgur.com/XOdnMKY.gif")
-        .setFooter("Foxy |",  "https://i.imgur.com/Tn205iZ.png")
+        .setFooter(`Foxy | ${version}`,  "https://i.imgur.com/Tn205iZ.png")
         .setTimestamp()
         message.channel.send(embed5);
     }
