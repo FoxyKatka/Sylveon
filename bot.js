@@ -5,7 +5,7 @@ const version = ("Version: 1.0.2")
 
 client.on('ready', () => {
     console.log('Ready!');
-    client.user.setActivity("!help for cmds")
+    client.user.setActivity(".help for cmds")
 });
 
 // welcome message
@@ -23,7 +23,7 @@ client.on("guildMemberRemove", member => {
 });
 
 client.on("guildCreate", guild => {
-    console.log("Some one added the sylveon bot to a server created by: " + guild.owner.user.username)
+    console.log("Someone added the sylveon bot to a server created by: " + guild.owner.user.username)
 });
 
 client.on('message', message => {
@@ -33,7 +33,7 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 
     if (command === `trans`) {
-        message.channel.send(`<3, Look mom its a link!, where could it lead? https://www.reddit.com/r/traaaaaaannnnnnnnnns/ `);  // send back "<3" to the channel the message was sent in
+        message.channel.send(`<3, Look mom its a link!, where could it lead? https://www.reddit.com/r/traaaaaaannnnnnnnnns/ `); 
     }
     else if (command === `ping`) {
         message.channel.send(`Time took: ${Date.now() - message.createdTimestamp} ms`);
@@ -166,29 +166,29 @@ client.on('message', message => {
         const embed = new Discord.RichEmbed()
         .setColor(0x74d7ec)
 		.setTitle("Command List")
-		.addField("!help", "Will show the current command list")
-		.addField("!ping", "WIll show the ping time for the bot")
-        .addField("!say [text]", "Will make the bot say something")
-        .addField("!uptime", "Will Show how long the bot has been online for")
-        .addField("!server", "Server info")
-        .addField("!user-info", "User info")
+		.addField(".help", "Will show the current command list")
+		.addField(".ping", "WIll show the ping time for the bot")
+        .addField(".say [text]", "Will make the bot say something")
+        .addField(".uptime", "Will Show how long the bot has been online for")
+        .addField(".server", "Server info")
+        .addField(".user-info", "User info")
         message.channel.send(embed);
         
         const embed2 = new Discord.RichEmbed()
         .setColor(0xffafc7)
-        .addField("!trans", "links to the best place on [reddit](https://www.reddit.com/r/traaaaaaannnnnnnnnns/)")
-        .addField("!theme", "If user is in a voice channel, sylveon will join and play the Pokemon theme song")
-        .addField("!amv", "Sends a random AMV youtube video")
-        .addField("!gif", "Sends a random gif of Sylveon related Art")
-        .addField("!image", "Sends a random image of Sylveon related Art")
+        .addField(".trans", "links to the best place on [reddit](https://www.reddit.com/r/traaaaaaannnnnnnnnns/)")
+        .addField(".theme", "If user is in a voice channel, sylveon will join and play the Pokemon theme song")
+        .addField(".amv", "Sends a random AMV youtube video")
+        .addField(".gif", "Sends a random gif of Sylveon related Art")
+        .addField(".image", "Sends a random image of Sylveon related Art")
         message.channel.send(embed2);
 
         const embed3 = new Discord.RichEmbed()
         .setColor(0xfbf9f5)
-        .addField("!attack [@user]", "Attack's the mentioned user")
-        .addField("!hug [@user]", "hugs the mentioned user")
-        .addField("!kiss [@user]", "Kisses the mentioned user")
-        .addField("!quote", "Sends a random Pokemon quote")
+        .addField(".attack [@user]", "Attack's the mentioned user")
+        .addField(".hug [@user]", "hugs the mentioned user")
+        .addField(".kiss [@user]", "Kisses the mentioned user")
+        .addField(".quote", "Sends a random Pokemon quote")
         message.channel.send(embed3);
 
         const embed4 = new Discord.RichEmbed()
