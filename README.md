@@ -1,5 +1,4 @@
-# sylveon
-
+![](/Documentation/banner.png?raw=true "Optional Title")
 
 # Setup
 The bot is in a Very Experimental state, would not recommend adding to your server but here is the link if you like to live dangerously. 
